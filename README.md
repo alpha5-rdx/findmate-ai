@@ -125,6 +125,13 @@ Runtime data (`data/findmate.db`, `uploads/`) is created automatically and is **
 
 ## Installation
 
+### Option 1 - Use the live application
+
+Open <https://findmate-ai-dhxvmhdgri3ju4fgkedida.streamlit.app/>. No installation is required: report lost or found items
+straight from your browser. (The Admin Dashboard is only available to the app owner, who configures the admin password as a secret.)
+
+### Option 2 - Run locally
+
 **Prerequisites:** Python 3.10 or newer, Git, and an internet connection for the first start
 (dependencies and the ~90 MB AI model are downloaded once).
 
@@ -175,6 +182,18 @@ The old default password used by earlier versions is **rejected on purpose**, an
 > Treat it as compromised: set a new secret on every deployment.
 
 ## Usage guide
+
+**How it works in five steps**
+
+1. Report a lost or found item.
+2. Provide its name, description, category, location and contact details.
+3. The AI matching engine compares the meaning of the descriptions.
+4. Explore the ranked potential matches and their similarity scores.
+5. An administrator reviews a match and contacts the people involved to arrange the return.
+
+> Similarity scores indicate *potential* matches, not verified ownership. Handle contact information and uploaded photos responsibly.
+
+**Step by step**
 
 1. **Try it quickly:** on the **Dashboard** click **Load sample dataset** to add fictional reports where the same item is described in different words.
 2. **Report an item:** open **Report Lost Item** or **Report Found Item**, fill in the form (all text fields need 3+ characters, the description 10+, e-mail needs `@` and `.com`, contact number is exactly 11 digits) and submit. Potential matches appear under the form, which is cleared for the next report.
