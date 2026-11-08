@@ -12,7 +12,6 @@ streamlit run app.py
 * The first run downloads `all-MiniLM-L6-v2` (~90 MB) from Hugging Face. Internet is needed once; afterwards it works offline.
 * No API keys or paid services are used.
 * On the Dashboard, click **Load sample dataset** for an instant demo (4 same-item-different-words pairs + 2 distractors).
-* Admin password: `admin123` (override with the `FINDMATE_ADMIN_PASSWORD` environment variable).
 
 ## Features
 
