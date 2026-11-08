@@ -1,5 +1,4 @@
 """Central configuration for FindMate AI."""
-import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -36,7 +35,3 @@ MAX_LOCATION_LEN = 120
 MIN_DESC_LEN = 10
 ALLOWED_IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp"}
 MAX_IMAGE_MB = 5
-
-# --- Admin ---------------------------------------------------------------
-# Override with the FINDMATE_ADMIN_PASSWORD environment variable.
-ADMIN_PASSWORD = os.environ.get("FINDMATE_ADMIN_PASSWORD", "admin123")

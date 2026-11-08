@@ -8,11 +8,11 @@ import streamlit as st
 
 from ai.embedder import ModelLoadError
 from ai.matcher import confidence_label, embedding_for, semantic_search
-from config import ADMIN_PASSWORD, CATEGORIES, MAX_DESC_LEN, MAX_NAME_LEN
+from config import CATEGORIES, MAX_DESC_LEN, MAX_NAME_LEN
 from data.sample_data import load_samples
 from database import db
 from frontend import ui
-from utils import files
+from utils import auth, files
 from utils.validation import clean, validate_report
 
 IMG_TYPES = ["png", "jpg", "jpeg", "webp"]
@@ -356,18 +356,27 @@ def _confirm_resolve(m: dict) -> None:
 def admin_dashboard() -> None:
     ui.hero("Admin Dashboard", "Review all reports and matches, and close resolved cases.",
             eyebrow="Administration", chips=["Restricted area"])
+
+    # The password comes from Streamlit secrets / an environment variable - never from code.
+    # If it is missing, fail closed: keep the area locked and drop any existing admin session.
+    admin_password, problem = auth.load_admin_password()
+    if admin_password is None:
+        st.session_state["is_admin"] = False
+        st.error(f"🔒 {problem}")
+        st.markdown(auth.SETUP_HELP)
+        return
+
     if not st.session_state.get("is_admin"):
         with st.form("admin_login"):
             ui.form_header("🔐", "Administrator sign in", "Enter the admin password to continue.")
             pw = st.text_input("Admin password", type="password", label_visibility="collapsed",
                                placeholder="Admin password")
             if st.form_submit_button("Sign in", type="primary"):
-                if pw == ADMIN_PASSWORD:
+                if auth.verify_password(pw, admin_password):
                     st.session_state["is_admin"] = True
                     st.rerun()
                 else:
                     st.error("Incorrect password.")
-        st.caption("Default password is `admin123`; set FINDMATE_ADMIN_PASSWORD to change it.")
         return
 
     flash = st.session_state.pop("admin_flash", None)
