@@ -66,7 +66,7 @@ uploads/                Uploaded images (git-ignored)
 
 ### Option 1: Use Online
 
-Visit our live application: [[FindMate AI](YOUR_STREAMLIT_DEPLOYMENT_UR](https://findmate-ai-dhxvmhdgri3ju4fgkedida.streamlit.app/)L)
+Visit our live application: https://findmate-ai-dhxvmhdgri3ju4fgkedida.streamlit.app/
 
 No installation required. Open the application in your browser and start reporting lost or found items.
 
