@@ -79,7 +79,7 @@ No installation required. Open the application in your browser and start reporti
 **Installation:**
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/findmate-ai.git
+git clone https://github.com/alpha5-rdx/findmate-ai.git
 cd findmate-ai
 pip install -r requirements.txt
 ```
