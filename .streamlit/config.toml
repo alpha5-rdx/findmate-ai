@@ -1,0 +1,14 @@
+[theme]
+# Force the light theme so the blue/white design renders identically on dark-mode systems.
+base = "light"
+primaryColor = "#0B5FFF"
+backgroundColor = "#F4F8FF"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#14213D"
+font = "sans serif"
+
+[server]
+maxUploadSize = 5   # MB - matches the app's image limit
+
+[browser]
+gatherUsageStats = false
