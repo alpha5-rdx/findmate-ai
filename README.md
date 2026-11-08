@@ -61,3 +61,44 @@ uploads/                Uploaded images (git-ignored)
 * No user accounts: reports are managed by the email used at submission, and admin access is a single shared password. Add real authentication before public deployment.
 * Image uploads are stored but not used for matching (text only).
 * Matching is recomputed in full on each change, which is fine for thousands of reports but not millions.
+
+## How to Use FindMate AI
+
+### Option 1: Use Online
+
+Visit our live application: [FindMate AI](YOUR_STREAMLIT_DEPLOYMENT_URL)
+
+No installation required. Open the application in your browser and start reporting lost or found items.
+
+### Option 2: Run Locally
+
+**Prerequisites:**
+- Python 3.10 or compatible version
+- Git (optional)
+- Internet connection for initial dependency and AI model installation
+
+**Installation:**
+
+```bash
+git clone https://github.com/YOUR-USERNAME/findmate-ai.git
+cd findmate-ai
+pip install -r requirements.txt
+```
+
+**Run the application:**
+
+```bash
+streamlit run app.py
+```
+
+Open `http://localhost:8501` in your browser.
+
+### How It Works
+
+1. Report a lost or found item.
+2. Provide its name, description, category and location.
+3. Let the AI matching engine analyze the descriptions.
+4. Explore ranked potential matches and similarity scores.
+5. Contact the relevant person through the provided contact information.
+
+**Note:** Similarity scores indicate potential matches, not verified ownership. Contact information and uploaded reports should be handled responsibly.
